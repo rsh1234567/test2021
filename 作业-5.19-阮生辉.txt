@@ -1,0 +1,155 @@
+Xshell 5 (Build 0964)
+Copyright (c) 2002-2016 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[c:\~]$ 
+
+Connecting to 192.168.84.128:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue May 19 00:23:13 2020 from 192.168.84.1
+[root@localhost ~]# mkdir aa
+[root@localhost ~]# ls
+aa  anaconda-ks.cfg  install.log  install.log.syslog
+[root@localhost ~]# mkdir bb
+[root@localhost ~]# ls
+aa  anaconda-ks.cfg  bb  install.log  install.log.syslog
+[root@localhost ~]# cd aa
+[root@localhost aa]# touch aa.txt
+[root@localhost aa]# touch bb.txt
+[root@localhost aa]# ls
+aa.txt  bb.txt
+[root@localhost aa]# ~
+-bash: /root: is a directory
+[root@localhost aa]# ls
+aa.txt  bb.txt
+[root@localhost aa]# cd ../..
+[root@localhost /]# ls
+bin   dev  home  lost+found  mnt  proc  sbin     srv  tmp  var
+boot  etc  lib   media       opt  root  selinux  sys  usr
+[root@localhost /]# cd host
+-bash: cd: host: No such file or directory
+[root@localhost /]# ls
+bin   dev  home  lost+found  mnt  proc  sbin     srv  tmp  var
+boot  etc  lib   media       opt  root  selinux  sys  usr
+[root@localhost /]# rm aa
+rm: cannot remove `aa': No such file or directory
+[root@localhost /]# rm -r aa/ bb
+rm: cannot remove `aa/': No such file or directory
+rm: cannot remove `bb': No such file or directory
+[root@localhost /]# ^C
+[root@localhost /]# cd .aa
+-bash: cd: .aa: No such file or directory
+[root@localhost /]# ls
+bin   dev  home  lost+found  mnt  proc  sbin     srv  tmp  var
+boot  etc  lib   media       opt  root  selinux  sys  usr
+[root@localhost /]# cd tmp
+[root@localhost tmp]# ls
+keyring-xuTTmi        orbit-cxy           pulse-qCN5Amu0XTRY  vmware-cxy   vmware-root-566269629
+ks-script-2nFHMN      orbit-gdm           virtual-cxy.aHrq9P  VMwareDnD    yum.log
+ks-script-2nFHMN.log  pulse-mGQeEaDJoIWg  vmware-config0      vmware-root
+[root@localhost tmp]# ~
+-bash: /root: is a directory
+[root@localhost tmp]# ls
+keyring-xuTTmi        orbit-cxy           pulse-qCN5Amu0XTRY  vmware-cxy   vmware-root-566269629
+ks-script-2nFHMN      orbit-gdm           virtual-cxy.aHrq9P  VMwareDnD    yum.log
+ks-script-2nFHMN.log  pulse-mGQeEaDJoIWg  vmware-config0      vmware-root
+[root@localhost tmp]# cd../..
+-bash: cd../..: No such file or directory
+[root@localhost tmp]# cd ../..
+[root@localhost /]# ls
+bin   dev  home  lost+found  mnt  proc  sbin     srv  tmp  var
+boot  etc  lib   media       opt  root  selinux  sys  usr
+[root@localhost /]# cd home
+[root@localhost home]# ls
+cxy
+[root@localhost home]# mkdir aa bb
+[root@localhost home]# ls
+aa  bb  cxy
+[root@localhost home]# cd aa
+[root@localhost aa]# ls
+[root@localhost aa]# mkdir cc
+[root@localhost aa]# ls
+cc
+[root@localhost aa]# touch /aa.txt /bb.txt
+[root@localhost aa]# ls
+cc
+[root@localhost aa]# touch aa.txt /home /aa /bb.txt
+[root@localhost aa]# ls
+aa.txt  cc
+[root@localhost aa]# touch bb.txt
+[root@localhost aa]# ls
+aa.txt  bb.txt  cc
+[root@localhost aa]# cd ..
+[root@localhost home]# ls
+aa  bb  cxy
+[root@localhost home]# cd bb
+[root@localhost bb]# touch .cc.txt
+[root@localhost bb]# ls
+[root@localhost bb]# ls -a
+.  ..  .cc.txt
+[root@localhost bb]# ls -l
+total 0
+[root@localhost bb]# ll -a
+total 8
+drwxr-xr-x. 2 root root 4096 May 19 04:21 .
+drwxr-xr-x. 5 root root 4096 May 19 04:18 ..
+-rw-r--r--. 1 root root    0 May 19 04:21 .cc.txt
+[root@localhost bb]# cd ../..
+[root@localhost /]# cd home
+[root@localhost home]# ls
+aa  bb  cxy
+[root@localhost home]# cp -r aa /home /aa-copy
+cp: target `/aa-copy' is not a directory
+[root@localhost home]# ls
+aa  bb  cxy
+[root@localhost home]# ls -a
+.  ..  aa  bb  cxy
+[root@localhost home]# cp -r aa /home/aa-copy
+[root@localhost home]# ls
+aa  aa-copy  bb  cxy
+[root@localhost home]# ls
+aa  aa-copy  bb  cxy
+[root@localhost home]# ls -l
+total 16
+drwxr-xr-x.  3 root root 4096 May 19 04:19 aa
+drwxr-xr-x.  3 root root 4096 May 19 04:30 aa-copy
+drwxr-xr-x.  2 root root 4096 May 19 04:21 bb
+drwx------. 26 cxy  cxy  4096 May 19 04:01 cxy
+[root@localhost home]# cp -r bb /home/aa
+[root@localhost home]# ls
+aa  aa-copy  bb  cxy
+[root@localhost home]# cd aa
+[root@localhost aa]# ls
+aa.txt  bb  bb.txt  cc
+[root@localhost aa]# rm tome/aa/bb
+rm: cannot remove `tome/aa/bb': No such file or directory
+You have mail in /var/spool/mail/root
+[root@localhost aa]# rm -r tome/aa/bb
+rm: cannot remove `tome/aa/bb': No such file or directory
+[root@localhost aa]# rm -r home/aa/bb
+rm: cannot remove `home/aa/bb': No such file or directory
+[root@localhost aa]# rm -r bb
+rm: descend into directory `bb'? y
+rm: remove regular empty file `bb/.cc.txt'? y
+rm: remove directory `bb'? y
+[root@localhost aa]# ls
+aa.txt  bb.txt  cc
+[root@localhost aa]# cd ../..
+[root@localhost /]# ls
+aa      bb.txt  boot  etc   lib         media  opt   root  selinux  sys  usr
+aa.txt  bin     dev   home  lost+found  mnt    proc  sbin  srv      tmp  var
+[root@localhost /]# cd home
+[root@localhost home]# ls
+aa  aa-copy  bb  cxy
+[root@localhost home]# cd aa
+[root@localhost aa]# ls
+aa.txt  bb.txt  cc
+[root@localhost aa]# cd ..
+[root@localhost home]# ls
+aa  aa-copy  bb  cxy
+[root@localhost home]# cd bb
+[root@localhost bb]# ls -a
+.  ..  .cc.txt
+[root@localhost bb]# 
